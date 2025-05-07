@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { supabase } from '../lib/supabaseClient';
 
 const SubmissionForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -25,10 +26,25 @@ const SubmissionForm: React.FC = () => {
     setError('');
     
     try {
-      // In a real app, you would send this data to your backend
-      // For now, we'll simulate a successful submission
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
+      const { data, error: supabaseError } = await supabase
+        .from('submissions')
+        .insert([
+          {
+            name: formData.name || null,
+            title: formData.title,
+            story_content: formData.content,
+            industry: formData.industry,
+            year_of_venture: formData.year,
+            learnings: formData.learnings,
+          },
+        ])
+        .select();
+
+      if (supabaseError) {
+        throw supabaseError;
+      }
+
+      console.log('Submission successful:', data);
       setIsSuccess(true);
       setFormData({
         name: '',
@@ -43,8 +59,9 @@ const SubmissionForm: React.FC = () => {
         setIsSuccess(false);
       }, 5000);
       
-    } catch (err) {
-      setError('Gönderim sırasında bir hata oluştu. Lütfen tekrar deneyin.');
+    } catch (err: any) {
+      console.error('Submission error:', err);
+      setError(`Gönderim sırasında bir hata oluştu: ${err.message || 'Lütfen tekrar deneyin.'}`);
     } finally {
       setIsSubmitting(false);
     }
