@@ -3,10 +3,9 @@ import React from 'react';
 interface VideoProps {
   videoId: string;
   title: string;
-  description: string;
 }
 
-const Video: React.FC<VideoProps> = ({ videoId, title, description }) => {
+const Video: React.FC<VideoProps> = ({ videoId, title }) => {
   return (
     <div className="bg-[#421108] rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]">
       <div className="aspect-video w-full">
@@ -21,7 +20,6 @@ const Video: React.FC<VideoProps> = ({ videoId, title, description }) => {
       </div>
       <div className="p-6">
         <h3 className="text-xl font-bold text-[#d9d9d9] mb-2">{title}</h3>
-        <p className="text-[#d9d9d9] opacity-80">{description}</p>
       </div>
     </div>
   );
@@ -31,18 +29,15 @@ const VideoSection: React.FC = () => {
   const videos = [
     {
       videoId: "uSUwNsK38DQ",
-      title: "Girişimcilik Hikayeleri #1",
-      description: "Karavan girişiminden yapay zekaya uzanan yolculuk ve öğrenilen dersler."
+      title: "Girişemedik Ep.6 | Fikirden Koda, Koddan Kaosa : Yazılımcılık",
     },
     {
       videoId: "6ayqn6lvinY",
-      title: "Girişimcilik Hikayeleri #2",
-      description: "Başarısızlıktan öğrenmek ve yeni başlangıçlar yapmak."
+      title: "Girişemedik Ep.5 | Çok Para: E-Ticaretçilik",
     },
     {
       videoId: "l3aW9QAk09c",
-      title: "Girişimcilik Hikayeleri #3",
-      description: "Gerçek girişimcilik deneyimleri ve yaşanan zorluklar."
+      title: "Girişemedik Ep.4 | Maraton: Makinecilik",
     }
   ];
 
@@ -61,8 +56,7 @@ const VideoSection: React.FC = () => {
             <Video
               key={index}
               videoId={video.videoId}
-              title={video.title}
-              description={video.description}
+              title={video.title}     
             />
           ))}
         </div>

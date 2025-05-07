@@ -27,10 +27,8 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex items-center">
           <a href="/" className="flex items-center">
-            <div className="w-12 h-12 rounded-full bg-[#d9d9d9] flex items-center justify-center mr-3">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#320604]">
-                <path d="M12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11S18.075 1 12 1zm0 19.25A8.25 8.25 0 103.75 12 8.25 8.25 0 0012 20.25zm3.97-5.5H8.03a.75.75 0 00-.53 1.28l3.97 3.97a.75.75 0 001.06 0l3.97-3.97a.75.75 0 00-.53-1.28zm-7.94-5h7.94a.75.75 0 00.53-1.28L12.53 4.5a.75.75 0 00-1.06 0L7.5 8.47a.75.75 0 00.53 1.28z" fill="currentColor"/>
-              </svg>
+            <div className="w-12 h-12 rounded-full bg-transparent flex items-center justify-center mr-3">
+              <img src="/favicon.svg" alt="Girişemedik Logo" className="w-30 h-30" />
             </div>
             <h1 className="text-[#d9d9d9] text-xl md:text-2xl font-bold">GİRİŞEMEDİK</h1>
           </a>
