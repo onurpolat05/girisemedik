@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkvite_react_typescript_starter=self.webpackChunkvite_react_typescript_starter||[]).push([[198],{198:e=>{e.exports=function(){throw new Error("ws does not work in the browser. Browser clients must use the native WebSocket object")}}}]);
+//# sourceMappingURL=198.9c8a12ff.chunk.js.map
