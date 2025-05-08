@@ -21,7 +21,7 @@ interface SubmissionData {
 serve(async (req) => {
   // CORS headers - adjust origin as needed for your deployed frontend
   const corsHeaders = {
-    'Access-Control-Allow-Origin': '*', // For local dev; in prod, use your actual frontend URL todo 'https://onurpolat05.github.io',
+    'Access-Control-Allow-Origin': 'http://girisemedik.com', // For local dev; in prod, use your actual frontend URL todo 'https://onurpolat05.github.io',
     'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
   }
 
