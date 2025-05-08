@@ -38,23 +38,13 @@ const Footer: React.FC = () => {
               </p>
             </div>
             
-            <div className="md:w-1/4 mb-8 md:mb-0">
+            <div className="md:w-1/2 mb-8 md:mb-0">
               <h3 className="text-[#d9d9d9] font-bold text-lg mb-4">Hızlı Bağlantılar</h3>
               <ul className="space-y-2">
                 <li><a href="#videos" className="text-[#d9d9d9] opacity-80 hover:opacity-100 transition-opacity duration-200">Son Hikayeler</a></li>
                 <li><a href="#submit" className="text-[#d9d9d9] opacity-80 hover:opacity-100 transition-opacity duration-200">Hikayeni Paylaş</a></li>
                 <li><a href="#about" className="text-[#d9d9d9] opacity-80 hover:opacity-100 transition-opacity duration-200">Hakkımızda</a></li>
               </ul>
-            </div>
-            
-            <div className="md:w-1/3">
-              <h3 className="text-[#d9d9d9] font-bold text-lg mb-4">İletişim</h3>
-              <p className="text-[#d9d9d9] opacity-80 mb-2">
-                Sorularınız veya işbirliği teklifleriniz için:
-              </p>
-              <a href="mailto:info@girisemedik.com" className="text-[#d9d9d9] hover:text-white transition-colors duration-200">
-                info@girisemedik.com
-              </a>
             </div>
           </div>
         </div>
