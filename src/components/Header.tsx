@@ -28,7 +28,7 @@ const Header: React.FC = () => {
         <div className="flex items-center">
           <a href="/" className="flex items-center">
             <div className="w-12 h-12 rounded-full bg-transparent flex items-center justify-center mr-3">
-              <img src="/favicon.svg" alt="Girişemedik Logo" className="w-30 h-30" />
+              <img src={process.env.PUBLIC_URL + '/favicon.svg'} alt="Girişemedik Logo" className="w-30 h-30" />
             </div>
             <h1 className="text-[#d9d9d9] text-xl md:text-2xl font-bold">GİRİŞEMEDİK</h1>
           </a>

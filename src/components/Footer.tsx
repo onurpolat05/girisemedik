@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
           <div className="mb-6 md:mb-0">
             <a href="/" className="flex items-center">
               <div className="w-10 h-10 rounded-full bg-transparent flex items-center justify-center mr-3">
-                <img src="/favicon.svg" alt="Girişemedik Logo" className="w-60 h-60" />
+              <img src={process.env.PUBLIC_URL + '/favicon.svg'} alt="Girişemedik Logo" className="w-60 h-60" />
               </div>
               <h2 className="text-[#d9d9d9] text-xl font-bold">GİRİŞEMEDİK</h2>
             </a>

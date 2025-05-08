@@ -14,7 +14,7 @@ const AboutSection: React.FC = () => {
             <div className="md:w-1/2 mb-8 md:mb-0">
               <div className="relative">
                 <div className="aspect-square w-full rounded-lg overflow-hidden bg-[#4A1A17] flex items-center justify-center">
-                   <img src="/favicon.svg" alt="Girişemedik Logo" className="w-30 h-30" />
+                   <img src={process.env.PUBLIC_URL + '/favicon.svg'} alt="Girişemedik Logo" className="w-30 h-30" />
                 </div>
                 <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-[#2A0503] rounded-lg -z-10"></div>
               </div>
