@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/girisemedik/static/css/main.5c61a8c1.css",
-    "main.js": "/girisemedik/static/js/main.a03da71a.js",
-    "static/js/198.9c8a12ff.chunk.js": "/girisemedik/static/js/198.9c8a12ff.chunk.js",
-    "index.html": "/girisemedik/index.html",
-    "main.5c61a8c1.css.map": "/girisemedik/static/css/main.5c61a8c1.css.map",
-    "main.a03da71a.js.map": "/girisemedik/static/js/main.a03da71a.js.map",
-    "198.9c8a12ff.chunk.js.map": "/girisemedik/static/js/198.9c8a12ff.chunk.js.map"
+    "main.css": "./static/css/main.5c61a8c1.css",
+    "main.js": "./static/js/main.6a99bb8b.js",
+    "static/js/198.9c8a12ff.chunk.js": "./static/js/198.9c8a12ff.chunk.js",
+    "index.html": "./index.html",
+    "main.5c61a8c1.css.map": "./static/css/main.5c61a8c1.css.map",
+    "main.6a99bb8b.js.map": "./static/js/main.6a99bb8b.js.map",
+    "198.9c8a12ff.chunk.js.map": "./static/js/198.9c8a12ff.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5c61a8c1.css",
-    "static/js/main.a03da71a.js"
+    "static/js/main.6a99bb8b.js"
   ]
 }
