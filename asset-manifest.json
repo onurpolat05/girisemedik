@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/girisemedik/static/css/main.2f83a056.css",
-    "main.js": "/girisemedik/static/js/main.c4662003.js",
+    "main.css": "/girisemedik/static/css/main.63b15b5a.css",
+    "main.js": "/girisemedik/static/js/main.ccca1c44.js",
     "static/js/198.9c8a12ff.chunk.js": "/girisemedik/static/js/198.9c8a12ff.chunk.js",
     "index.html": "/girisemedik/index.html",
-    "main.2f83a056.css.map": "/girisemedik/static/css/main.2f83a056.css.map",
-    "main.c4662003.js.map": "/girisemedik/static/js/main.c4662003.js.map",
+    "main.63b15b5a.css.map": "/girisemedik/static/css/main.63b15b5a.css.map",
+    "main.ccca1c44.js.map": "/girisemedik/static/js/main.ccca1c44.js.map",
     "198.9c8a12ff.chunk.js.map": "/girisemedik/static/js/198.9c8a12ff.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2f83a056.css",
-    "static/js/main.c4662003.js"
+    "static/css/main.63b15b5a.css",
+    "static/js/main.ccca1c44.js"
   ]
 }
