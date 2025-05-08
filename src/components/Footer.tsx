@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center mb-10">
           <div className="mb-6 md:mb-0">
-            <a href="/" className="flex items-center">
+            <a href="/girisemedik" className="flex items-center">
               <div className="w-10 h-10 rounded-full bg-transparent flex items-center justify-center mr-3">
               <img src={process.env.PUBLIC_URL + '/favicon.svg'} alt="Girişemedik Logo" className="w-60 h-60" />
               </div>

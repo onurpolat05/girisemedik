@@ -26,7 +26,7 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex items-center">
-          <a href="/" className="flex items-center">
+          <a href="/girisemedik" className="flex items-center">
             <div className="w-12 h-12 rounded-full bg-transparent flex items-center justify-center mr-3">
               <img src={process.env.PUBLIC_URL + '/favicon.svg'} alt="Girişemedik Logo" className="w-30 h-30" />
             </div>

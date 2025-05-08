@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { supabase } from '../lib/supabaseClient';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const SubmissionForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -14,37 +15,46 @@ const SubmissionForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState('');
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const onRecaptchaChange = (token: string | null) => {
+    setRecaptchaToken(token);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!recaptchaToken) {
+      setError('Lütfen reCAPTCHA doğrulamasını tamamlayın.');
+      return;
+    }
+
     setIsSubmitting(true);
     setError('');
     
     try {
-      const { data, error: supabaseError } = await supabase
-        .from('submissions')
-        .insert([
-          {
-            name: formData.name || null,
-            title: formData.title,
-            story_content: formData.content,
-            industry: formData.industry,
-            year_of_venture: formData.year,
-            learnings: formData.learnings,
-          },
-        ])
-        .select();
+      const { data: functionResponse, error: functionError } = await supabase.functions.invoke(
+        'verify-recaptcha-and-submit',
+        {
+          body: { ...formData, recaptchaToken },
+        }
+      );
 
-      if (supabaseError) {
-        throw supabaseError;
+      if (functionError) {
+        throw new Error(functionError.message || 'Edge Function çağrılırken bir hata oluştu.');
       }
 
-      console.log('Submission successful:', data);
+      if (functionResponse.error) {
+        throw new Error(functionResponse.error.details || functionResponse.error || 'Gönderim sırasında bir hata oluştu.');
+      }
+
+      console.log('Submission successful via Edge Function:', functionResponse);
       setIsSuccess(true);
       setFormData({
         name: '',
@@ -54,6 +64,10 @@ const SubmissionForm: React.FC = () => {
         year: '',
         learnings: ''
       });
+      if (recaptchaRef.current) {
+        recaptchaRef.current.reset();
+      }
+      setRecaptchaToken(null);
       
       setTimeout(() => {
         setIsSuccess(false);
@@ -62,6 +76,10 @@ const SubmissionForm: React.FC = () => {
     } catch (err: any) {
       console.error('Submission error:', err);
       setError(`Gönderim sırasında bir hata oluştu: ${err.message || 'Lütfen tekrar deneyin.'}`);
+      if (recaptchaRef.current) {
+        recaptchaRef.current.reset();
+      }
+      setRecaptchaToken(null);
     } finally {
       setIsSubmitting(false);
     }
@@ -198,13 +216,22 @@ const SubmissionForm: React.FC = () => {
               ></textarea>
             </div>
 
-            <div className="text-center">
+            <div className="my-6">
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={process.env.REACT_APP_RECAPTCHA_V2_SITE_KEY || 'YOUR_SITE_KEY_NOT_FOUND'}
+                onChange={onRecaptchaChange}
+                theme="dark" // You can choose 'light' or 'dark'
+              />
+            </div>
+
+            <div>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`bg-[#d9d9d9] text-[#320604] px-8 py-3 rounded-md font-medium hover:bg-white transition-colors duration-300 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                className="w-full bg-[#d9d9d9] text-[#2A0503] font-bold py-3 px-6 rounded-md hover:bg-opacity-90 transition duration-300 disabled:opacity-50"
               >
-                {isSubmitting ? 'Gönderiliyor...' : 'Hikayeni Gönder'}
+                {isSubmitting ? 'Gönderiliyor...' : 'Hikayemi Gönder'}
               </button>
             </div>
           </form>
