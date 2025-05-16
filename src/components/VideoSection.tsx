@@ -28,17 +28,19 @@ const Video: React.FC<VideoProps> = ({ videoId, title }) => {
 const VideoSection: React.FC = () => {
   const videos = [
     {
+      videoId: "8WxTb4s2mmQ",
+      title: "Girişemedik Ep.8 | İnşaatçılık, 25-30 Yaş Sendromculuğu ft. Sezi Barutçu Polat",
+    },
+    {
+      videoId: "IpjXe_zG0c4",
+      title: "Girişemedik Ep.7 | Kim Bu Yatırımcılar? Neredeler? | Yatırımcılık",
+    },
+    {
       videoId: "uSUwNsK38DQ",
       title: "Girişemedik Ep.6 | Fikirden Koda, Koddan Kaosa : Yazılımcılık",
     },
-    {
-      videoId: "6ayqn6lvinY",
-      title: "Girişemedik Ep.5 | Çok Para: E-Ticaretçilik",
-    },
-    {
-      videoId: "l3aW9QAk09c",
-      title: "Girişemedik Ep.4 | Maraton: Makinecilik",
-    }
+
+
   ];
 
   return (
